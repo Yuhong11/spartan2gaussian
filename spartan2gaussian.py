@@ -34,7 +34,7 @@ for item in all_inputs:
 	molecules = lines.split('$$$$')[:-1]  # Last line is empty so discard it...
 	for n in range(len(molecules)): 
 		mol = molecules[n]
-		mol_lines   = mol.split('\n')     # Break up chuck by newlines
+		mol_lines   = mol.split('\n')     # Break up chunk by newlines
 		coordinate_lines = [ line.split() for line in mol_lines if '0  0  0  0  0  0  0  0  0  0  0  0' in line ]          # Retrieve Coordinate Lines
 		coordinates = [ line[3] +'    '+ line[0] +'    '+ line[1] +'    '+ line[2] + '\n' for line in coordinate_lines ]   # Form Gaussian Input Format
 		output_buffer = prefix1 + item.split('.')[0] + com_file_suffix + str(n+1) + '.chk\n' + prefix2                      # Construct Gaussian Prefix
